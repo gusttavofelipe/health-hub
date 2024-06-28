@@ -1,0 +1,7 @@
+[tool.taskipy.tasks]
+run = "python manage.py runserver"
+makemigrations = "python manage.py makemigrations"
+migrate = "python manage.py migrate"
+test = "pytest --cov=. -vv"
+post_test = "coverage html"
+test-matching = "pytest ./tests -vv -k"
