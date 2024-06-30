@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="PersonalHealthRecord",
+            name="Professional",
             fields=[
                 (
                     "id",
@@ -54,14 +54,6 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("age", models.IntegerField(verbose_name="Age")),
-                ("locality", models.CharField(max_length=100, verbose_name="Locality")),
-                ("street", models.CharField(max_length=100, verbose_name="Street")),
-                (
-                    "reference",
-                    models.CharField(
-                        blank=True, max_length=255, null=True, verbose_name="Reference"
-                    ),
-                ),
                 (
                     "phone_number",
                     models.CharField(
@@ -81,35 +73,10 @@ class Migration(migrations.Migration):
                         verbose_name="E-mail",
                     ),
                 ),
-                (
-                    "household_size",
-                    models.IntegerField(
-                        blank=True, null=True, verbose_name="Household Size"
-                    ),
-                ),
-                (
-                    "health_issue",
-                    models.CharField(
-                        blank=True,
-                        max_length=255,
-                        null=True,
-                        verbose_name="Health Issue",
-                    ),
-                ),
-                (
-                    "symptoms",
-                    models.TextField(
-                        blank=True, max_length=530, null=True, verbose_name="Symptoms"
-                    ),
-                ),
-                (
-                    "last_recorded_by",
-                    models.CharField(max_length=255, verbose_name="Last Recorded By"),
-                ),
             ],
             options={
-                "verbose_name": "Personal Health Record",
-                "verbose_name_plural": "Personal Health Records",
+                "verbose_name": "Professional",
+                "verbose_name_plural": "Professionals",
                 "ordering": ["-created_at"],
             },
         ),

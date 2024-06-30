@@ -1,13 +1,8 @@
-import os
 from django.db import models
+from utils.base_model import BaseModel, get_upload_path
 
 
-def get_upload_path(instance, filename):
-    folder_name = instance.full_name.replace(" ", "_").lower()
-    return os.path.join("records", folder_name, filename)
-
-
-class PersonalRecord(models.Model):
+class PersonalHealthRecord(BaseModel):
     full_name = models.CharField("Full Name", max_length=255, blank=False, null=False)
     picture = models.ImageField(
         "Picture", upload_to=get_upload_path, blank=True, null=True
@@ -30,12 +25,10 @@ class PersonalRecord(models.Model):
     last_recorded_by = models.CharField(
         "Last Recorded By", max_length=255, null=False, blank=False
     )
-    created_at = models.DateTimeField("Created_at", auto_now_add=True)
-    updated_at = models.DateTimeField("Updated_at", auto_now=True)
 
     class Meta:
-        verbose_name = "Personal Record"
-        verbose_name_plural = "Personal Records"
+        verbose_name = "Personal Health Record"
+        verbose_name_plural = "Personal Health Records"
         ordering = ["-created_at"]
 
     def __str__(self):
