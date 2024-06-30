@@ -18,6 +18,9 @@ Uma aplicação que:
 ## Solução Proposta
 Desenvolvimento de uma aplicação web com interface intuitiva e amigável, projetada para armazenar de forma segura e acessível as informações de saúde dos pacientes, de modo que o profissional responsável seja capaz de fazer análises prévias que o ajudarão no atendimento antes mesmo do encontro com o paciente. O site disponibilizará sistemas de login para que cada profissional tenha sua área própria restrita e de gerenciamento.
 
+### Arquitetura
+![Desenho da arquitetura](images/architecture.png)
+
 ## Diagramas de sequência
 
 #### Diagrama de listagem de registros
