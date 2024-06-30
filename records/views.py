@@ -1,5 +1,5 @@
-from django.views.generic import ListView
+from django.views.generic import TemplateView
 
 
-class HomeView(ListView):
-    ...
+class HomeView(TemplateView):
+    template_name = "records/home.html"
