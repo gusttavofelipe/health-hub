@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Register Personal Health Record</h1>
+    <div class="card p-5 shadow-lg" style="max-width: 800px; width: 100%; margin: 0 auto;">
+        <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_full_name" class="form-label">{{ form.full_name.label }}</label>
+                {% render_field form.full_name placeholder='Ex: John Doe' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_picture" class="form-label">{{ form.picture.label }}</label>
+                {% render_field form.picture class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_age" class="form-label">{{ form.age.label }}</label>
+                {% render_field form.age placeholder='Ex: 30' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_locality" class="form-label">{{ form.locality.label }}</label>
+                {% render_field form.locality placeholder='Ex: New York' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_street" class="form-label">{{ form.street.label }}</label>
+                {% render_field form.street placeholder='Ex: 123 Main St' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_reference" class="form-label">{{ form.reference.label }}</label>
+                {% render_field form.reference placeholder='Optional reference point' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_phone_number" class="form-label">{{ form.phone_number.label }}</label>
+                {% render_field form.phone_number placeholder='Ex: (123) 456-7890' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_email" class="form-label">{{ form.email.label }}</label>
+                {% render_field form.email placeholder='Ex: email@example.com' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_household_size" class="form-label">{{ form.household_size.label }}</label>
+                {% render_field form.household_size placeholder='Ex: 4' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_health_issue" class="form-label">{{ form.health_issue.label }}</label>
+                {% render_field form.health_issue placeholder='Optional health issues' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_symptoms" class="form-label">{{ form.symptoms.label }}</label>
+                {% render_field form.symptoms placeholder='Describe any symptoms' class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_last_recorded_by" class="form-label">{{ form.last_recorded_by.label }}</label>
+                {% render_field form.last_recorded_by placeholder='Person who recorded the information' class='form-control' %}
+            </div>
+            <button type="submit" class="btn btn-success w-100 fw-bold">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

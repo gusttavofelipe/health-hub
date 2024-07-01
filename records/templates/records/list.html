@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Lista de Registros de Saúde</h1>
+
+    {% if records %}
+    <div class="row justify-content-center">
+        <div class="col-md-12 shadow-lg p-4">  <!-- Ajuste para col-md-12 para mais largura -->
+            <ul class="list-group p-4 rounded">
+                {% for record in records %}
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <a href="{% url "records:detail" record.uuid %}" class="text-decoration-none w-75">{{ record.full_name }}</a>
+                    <span class="text-muted d-none d-md-inline"><strong>Age:</strong> {{ record.age }}</span>
+                    <span class="text-muted d-none d-md-inline"><strong>Updated at:</strong> {{ record.updated_at|date:"d/m/Y H:i" }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning fs-5 text-center">
+        Nenhum registro encontrado.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -31,5 +31,13 @@ class PersonalHealthRecord(BaseModel):
         verbose_name_plural = "Personal Health Records"
         ordering = ["-created_at"]
 
+    # def get_verbose_names(self):
+    #     exclude_fields = ["id", "uuid", "picture"]
+    #     return {
+    #         field.name: field.verbose_name
+    #         for field in self._meta.fields
+    #         if field.name not in exclude_fields
+    #     }
+
     def __str__(self):
         return self.full_name
