@@ -24,4 +24,5 @@ from healthhub import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("records.urls")),
+    path("", include("professional.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
