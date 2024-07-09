@@ -7,7 +7,7 @@ class Professional(BaseModel):
     picture = models.ImageField(
         "Picture", upload_to=get_upload_path, blank=True, null=True
     )
-    age = models.IntegerField("Age", blank=False, null=False)
+    birth_date = models.DateTimeField("Birth Date", auto_now=False, auto_now_add=False)
     phone_number = models.CharField(
         "Phone Number", max_length=255, blank=True, null=True
     )
