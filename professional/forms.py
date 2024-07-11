@@ -1,12 +1,25 @@
 from django import forms
 from django.contrib.auth.models import User
 from professional.models import Professional
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate
 
 
-class LoginForm(AuthenticationForm):
+class LoginForm(forms.Form):
     email = forms.EmailField(label="Email", max_length=254)
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
+
+    def clean(self):
+        email = self.cleaned_data.get("email")
+        password = self.cleaned_data.get("password")
+
+        if email and password:
+            self.user = authenticate(username=email, password=password)
+            if self.user is None:
+                raise forms.ValidationError("Invalid email or password")
+        return self.cleaned_data
+
+    def get_user(self):
+        return self.user
 
 
 class ProfessionalForm(forms.ModelForm):
@@ -42,8 +55,6 @@ class ProfessionalForm(forms.ModelForm):
 
         try:
             user = User.objects.get(username=email.split("@")[0])
-            # Se o usuário já existir, você pode atualizar os dados aqui se necessário
-            # Exemplo: user.email = email
         except User.DoesNotExist:
             user = User(username=email.split("@")[0], email=email)
             user.set_password(password)
