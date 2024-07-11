@@ -6,14 +6,17 @@
     <a class="btn btn-outline-light fw-bold" aria-current="page" href="{% url 'records:home' %}">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-light fw-bold" href="{% url 'professionals:register' %}">Professional</a>
+    <a class="nav-link text-light fw-bold" href="{% url 'professionals:register' %}">Register</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-light fw-bold" href="{% url 'records:register' %}">Register</a>
+    <a class="nav-link text-light fw-bold" href="{% url 'professionals:login' %}">Login</a>
   </li>
-  <li class="nav-item">
+  {% comment %} <li class="nav-item">
+    <a class="nav-link text-light fw-bold" href="{% url 'records:register' %}">Register Records</a>
+  </li> {% endcomment %}
+  {% comment %} <li class="nav-item">
     <a class="nav-link text-light fw-bold" href="{% url 'records:list-records' %}">List</a>
-  </li>
+  </li> {% endcomment %}
   <li class="nav-item">
     <a class="nav-link text-light d-flex align-items-center" href="https://github.com/gusttavofelipe" target="_blank"
       tabindex="-1" aria-disabled="true">

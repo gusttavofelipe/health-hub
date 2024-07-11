@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Login</h1>
+    <div class="card p-5 shadow-lg" style="max-width: 800px; width: 100%; margin: 0 auto;">
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_username" class="form-label">{{ form.username.label }}</label>
+                {% render_field form.username class='form-control' %}
+            </div>
+            <div class="mb-3">
+                <label for="id_password" class="form-label">{{ form.password.label }}</label>
+                {% render_field form.password class='form-control' %}
+            </div>
+            <button type="submit" class="btn btn-success w-100 fw-bold">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
