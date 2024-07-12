@@ -27,7 +27,9 @@ class PersonalHealthRecordListView(ListView):
     context_object_name = "records"
 
     def get_queryset(self):
-        return super().get_queryset()
+        user = self.request.user
+        queryset = PersonalHealthRecord.objects.filter(last_recorded_by__user=user.id)
+        return queryset
 
 
 class PersonalHealthRecordDetailView(DetailView):
@@ -37,6 +39,5 @@ class PersonalHealthRecordDetailView(DetailView):
     pk_url_kwarg = "uuid"
 
     def get_object(self, queryset=None):
-        # Busca o objeto usando o campo uuid
         uuid = self.kwargs.get(self.pk_url_kwarg)
         return self.model.objects.get(uuid=uuid)
