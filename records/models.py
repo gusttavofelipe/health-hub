@@ -1,4 +1,5 @@
 from django.db import models
+from professional.models import Professional
 from utils.base_model import BaseModel, get_upload_path
 
 
@@ -22,22 +23,12 @@ class PersonalHealthRecord(BaseModel):
         "Health Issue", max_length=255, null=True, blank=True
     )
     symptoms = models.TextField("Symptoms", max_length=530, blank=True, null=True)
-    last_recorded_by = models.CharField(
-        "Last Recorded By", max_length=255, null=False, blank=False
-    )
+    last_recorded_by = models.ForeignKey(Professional, on_delete=models.DO_NOTHING)
 
     class Meta:
         verbose_name = "Personal Health Record"
         verbose_name_plural = "Personal Health Records"
         ordering = ["-created_at"]
-
-    # def get_verbose_names(self):
-    #     exclude_fields = ["id", "uuid", "picture"]
-    #     return {
-    #         field.name: field.verbose_name
-    #         for field in self._meta.fields
-    #         if field.name not in exclude_fields
-    #     }
 
     def __str__(self):
         return self.full_name
