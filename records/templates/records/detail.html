@@ -1,1 +1,39 @@
 {% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Personal Health Record</h5>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Full Name:</strong> {{ record.full_name }}</p>
+                    <p><strong>Age:</strong> {{ record.age }}</p>
+                    <p><strong>Locality:</strong> {{ record.locality }}</p>
+                    <p><strong>Street:</strong> {{ record.street }}</p>
+                    {% if record.reference %}
+                    <p><strong>Reference:</strong> {{ record.reference }}</p>
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    {% if record.picture %}
+                    <img src="{{ record.picture.url }}" class="img-fluid" alt="Profile Picture">
+                    {% else %}
+                    <p>No picture available</p>
+                    {% endif %}
+                    <p><strong>Phone Number:</strong> {{ record.phone_number }}</p>
+                    <p><strong>Email:</strong> {{ record.email }}</p>
+                    <p><strong>Household Size:</strong> {{ record.household_size }}</p>
+                    <p><strong>Health Issue:</strong> {{ record.health_issue }}</p>
+                    {% if record.symptoms %}
+                    <p><strong>Symptoms:</strong> {{ record.symptoms }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <p><strong>Last Recorded By:</strong> {{ record.last_recorded_by }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
