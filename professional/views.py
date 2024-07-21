@@ -29,7 +29,7 @@ class ProfessionalCreateView(CreateView):
             messages.warning(
                 self.request, "Unable to log in automatically. Please log in manually."
             )
-            return redirect("records:home")
+            return redirect("professionals:login")
 
         return super().form_valid(form)
 
