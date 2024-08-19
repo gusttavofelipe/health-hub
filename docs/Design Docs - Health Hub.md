@@ -111,6 +111,3 @@ sequenceDiagram
 
 ### Banco de dados
 ![Diagrama do banco de dados](images/database.png)
-
-## Exemplo de payloads
-...

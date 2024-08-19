@@ -3,7 +3,7 @@
 A Aplicação foi desenvolvida utilizando o `Django`. Para salvar os dados está sendo utilizado o `postgres`, por meio do `docker`.
 
 ## Execução
-Primeiro você precisa do `pyenv` e do `poetry`, para gerenciar o `python` e o ambiente virtual, respectivamente. Caso não tenha instalado, aqui está uma [documentação](https://github.com/nayannanara/poetry-documentation) para te ajudar.
+Primeiro você precisa do `pyenv`, para gerenciar o `python` e o ambiente virtual.
 
 Em seguida crie e ative seu ambiente virtual usando pyenv, executando respectivamente:
 ```bash
@@ -54,14 +54,3 @@ task run
 ```
 
 Em seguida, para visualizar abra seu navegador no endereço: http://127.0.0.1:8000/
-
-## Testes
-Para executar todos os testes:
-```bash
-task test
-```
-
-Para executar um teste específico:
-```bash
-task test-matching "especific test name"
-```
