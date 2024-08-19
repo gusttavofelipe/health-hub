@@ -7,15 +7,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <title>Home</title>
 </head>
 
 <body>
-    {% include "parcials/_nav.html" %}
+    {% include "parcials/_header.html" %}
     {% include "parcials/_messages.html" %}
 
     {% block content %}
     {% endblock content %}
+    {% include "parcials/_footer.html" %}
 
     <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
 

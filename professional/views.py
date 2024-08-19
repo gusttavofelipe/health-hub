@@ -49,16 +49,13 @@ class ProfessionalLoginView(View):
             user = form.get_user()
             if user is not None:
                 login(request, user)
-                messages.success(request, "Logged in successfully!")
                 return redirect("records:home")
-            else:
-                messages.error(request, "Invalid email or password")
 
+        messages.error(request, "Invalid email or password")
         return render(request, self.template_name, {"form": form})
 
 
 class ProfessionalLogoutView(View):
     def get(self, request):
         logout(request)
-        messages.info(request, "Logged out successfully!")
         return redirect("records:home")

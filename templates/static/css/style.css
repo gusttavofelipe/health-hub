@@ -1,0 +1,48 @@
+.header-bg {
+  position: relative;
+}
+
+.nav-link {
+  font-size: 1.15rem;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon,
+.navbar-scrolled .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scroll,
+.navbar-scrolled {
+  background-color: #accccc;
+}
+
+.mask-custom {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, .15);
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  letter-spacing: 3px;
+}
+
+#intro {
+  background-image: url("/static/img/banner.jpg");
+  /* Garante que a imagem cubra todo o espaço disponível */
+  background-size: cover;
+  /* Evita repetição da imagem */
+  background-repeat: no-repeat;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+  #intro {
+    /* Mantém 'cover' no mobile para preencher o espaço */
+    background-size: cover;
+    /* Centraliza a imagem no mobile */
+    background-position: center;
+  }
+}

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+from django.contrib.messages import constants
 import os
 from pathlib import Path
 import env
@@ -137,3 +137,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTHENTICATION_BACKENDS = ["professional.backends.email_backend.EmailBackend"]
+
+# django messages
+MESSAGE_TAGS = {
+    constants.DEBUG: "alert-info",
+    constants.ERROR: "alert-danger",
+    constants.INFO: "alert-info",
+    constants.SUCCESS: "alert-success",
+    constants.WARNING: "alert-warning",
+}

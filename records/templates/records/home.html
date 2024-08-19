@@ -1,5 +1,25 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-
-{% endblock content %}
+<div class="container mt-5">
+    <!-- About Section -->
+    <div class="row bg-light rounded shadow">
+        <div class="col-md-6 d-flex align-items-center">
+            <img src="{% static 'img/about-us.jpg' %}" class="img-fluid rounded shadow" alt="About us"
+                style="max-height: 90%;">
+        </div>
+        <div class="col-md-6 d-flex align-items-center p-5">
+            <div>
+                <h2 class="h3 mb-3">About us</h2>
+                <p class="mb-4">
+                    We understand the importance of accurate and accessible data in medical practice.
+                    That's why we've created an intuitive and secure system that allows our professionals to record,
+                    store and access vital patient information quickly and easily.
+                </p>
+                <a class="btn btn-secondary" href="#">Read more</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
